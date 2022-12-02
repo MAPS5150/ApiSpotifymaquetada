@@ -12,6 +12,12 @@
 </head>
 
 <body>
+    <!-- identificador sdk para reproducir la musica de Spotify Premium -->
+    <div style="position: relative; top: 30vh; left: 10%;">
+        <h1>Spotify Web Playback SDK Quick Start</h1>
+        <button id="togglePlay">Reproducir SDK</button>
+    </div>
+
     <div class="container text-center my-3">
         <div class="row mx-auto my-auto">
             <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
@@ -39,7 +45,7 @@
                                 <div class="contImg">
                                     <img src="c2.png" alt="">
                                 </div>
-                                <div class="contTexto">
+                                <div class="contTexto" style="overflow: auto;">
                                     <div class='row'>
                                         <div class='offset-md-1 col-sm-4' id='song-detail'></div>
                                     </div>
@@ -164,6 +170,9 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="index.js"></script>
+    <!-- controlador sdk para reproducir la musica de Spotify Premium -->
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script src="sdkcontroler.js"></script>
 </body>
 
 </html>
