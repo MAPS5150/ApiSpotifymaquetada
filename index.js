@@ -60,7 +60,7 @@ const APIController = (function() {
 
     const _getPlaylistByGenre = async (token, genreId) => {
 
-        const limit = 10;
+        const limit = 5;
         
         const result = await fetch(`https://api.spotify.com/v1/browse/categories/${genreId}/playlists?limit=${limit}`, {
             method: 'GET',
@@ -73,7 +73,7 @@ const APIController = (function() {
 
     const _getTracks = async (token, tracksEndPoint) => {
 
-        const limit = 10;
+        const limit = 5;
 
         const result = await fetch(`${tracksEndPoint}?limit=${limit}`, {
             method: 'GET',
@@ -138,7 +138,7 @@ const UIController = (function() {
                 playlist: document.querySelector(DOMElements.selectPlaylist),
                 tracks: document.querySelector(DOMElements.divSonglist),
                 submit: document.querySelector(DOMElements.buttonSubmit),
-                songDetail: document.querySelector(DOMElements.divSongDetail)
+                songDetail: document.querySelector(DOMElements.divSongDetail),
             }
         },
 
@@ -167,20 +167,19 @@ const UIController = (function() {
             detailDiv.innerHTML = '';
             const html = 
             `
-            <div class="row col-sm-12 px-0">
-                <img src="${img}" alt="" style="position: relative; left: 5em; width: 200%; height: 200%;">
+            <div >
+                <img src="${img}" alt="" style="position: relative; left: -2em; height: 20vh; width: 140px">
             </div>
-            <div class="row col-sm-12 px-0">
-                <label for="Genre" class="form-label col-sm-12">${title}:</label>
+            <div class="row" style="border-style: solid; border-width: thin; position: relative; left: 9em; top: -20vh; color: white; width: 10em;">               
+                <label for="Genre" class="form-label">${title}:</label>                          
+                <label for="artist" class="form-label">By ${artist}:</label>               
             </div>
-            <div class="row col-sm-12 px-0">
-                <label for="artist" class="form-label col-sm-12">By ${artist}:</label>
-            </div>
+            
             `;
-
+            
             detailDiv.insertAdjacentHTML('beforeend', html)
         },
-
+        
         resetTrackDetail() {
             this.inputField().songDetail.innerHTML = '';
         },
